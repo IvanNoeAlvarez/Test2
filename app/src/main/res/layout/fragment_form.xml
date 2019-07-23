@@ -11,6 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_marginTop="20dp"
             android:paddingLeft="20dp"
             android:paddingTop="50dp"
             android:paddingRight="20dp">
@@ -29,11 +30,36 @@
                     android:text="Nombre:" />
 
                 <EditText
+                    android:id="@+id/editNombre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Nombre" />
 
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="bolded"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="italic"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="boldeditalic"
+                    android:textStyle="bold|italic" />
+
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,10 +72,22 @@
                     android:text="Teléfono:" />
 
                 <EditText
+                    android:id="@+id/editPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="—"
-                    android:inputType="phone" />
+                    android:inputType="phone"
+                    android:text="654321987" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/textURL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Mirar java (URL)" />
 
             </LinearLayout>
 
@@ -167,9 +205,9 @@
                 android:id="@+id/progressBar2"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
-                android:progress="30"
-                android:max="100"
-                android:layout_height="20dp" />
+                android:layout_height="20dp"
+                android:max="10"
+                android:progress="3" />
 
             <SeekBar
                 android:id="@+id/seekBar2"
@@ -181,10 +219,10 @@
 
             <SeekBar
                 android:id="@+id/seekBar"
-                android:progress="3"
-                android:max="10"
                 android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                android:layout_height="20dp"
+                android:max="10"
+                android:progress="3" />
 
 
             <!--Botones-->
@@ -195,24 +233,24 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="80dp"
-                android:layout_height="55dp"
-                android:text="Button"
-                app:srcCompat="@mipmap/ic_launcher_round" />
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="80dp"
+                    android:layout_height="55dp"
+                    android:text="Button"
+                    app:srcCompat="@mipmap/ic_launcher_round" />
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="mambo"
+                    android:text="Button" />
             </LinearLayout>
-
 
 
             <!--Observaciones y espaciado-->

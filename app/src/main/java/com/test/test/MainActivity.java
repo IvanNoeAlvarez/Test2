@@ -1,10 +1,13 @@
 package com.test.test;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -53,9 +56,10 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if (mContent instanceof MainFragment) {
+        } else if (!(mContent instanceof MainFragment)) {
             mContent = new MainFragment();
             getSupportActionBar().setTitle(R.string.app_name);
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame, mContent).commitAllowingStateLoss();
         } else {
             super.onBackPressed();
         }
@@ -78,10 +82,29 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             Toast.makeText(this, "Has clicado en settings", Toast.LENGTH_SHORT).show();
+
+            startActivityForResult(new Intent(MainActivity.this, SettingsActivity.class), 1000);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode) {
+            case 1000:
+                if (resultCode == RESULT_OK) {
+                    if (mContent instanceof RecyclerFragment) {
+                        String text = data.getStringExtra("nombre");
+                        if (text == null)
+                            text = "";
+                        ((RecyclerFragment) mContent).binding.mockText.setText(text);
+                    }
+                }
+                break;
+            default:
+        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -115,5 +138,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-
+    public void mambo(View view) {
+        Toast.makeText(view.getContext(), "Has hecho otro clic", Toast.LENGTH_SHORT).show();
+    }
 }

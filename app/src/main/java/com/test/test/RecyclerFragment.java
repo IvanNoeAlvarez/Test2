@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RecyclerFragment extends Fragment {
-    private FragmentRecyclerBinding binding;
+    public FragmentRecyclerBinding binding;
     List<Usuario> usuarios = new ArrayList<>();
 
 
