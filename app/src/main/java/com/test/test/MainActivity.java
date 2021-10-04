@@ -2,6 +2,7 @@ package com.test.test;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -111,6 +112,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
+        Log.d("MainActivity", "onNavigationItemSelected() called with: item = [" + item + "]");
 
         if (id == R.id.nav_home) {
             mContent = new MainFragment();
@@ -125,7 +127,6 @@ public class MainActivity extends AppCompatActivity
             mContent = new FormFragment();
             getSupportActionBar().setTitle(R.string.menu_forms);
         } else if (id == R.id.nav_share) {
-
         } else if (id == R.id.nav_send) {
 
         }
